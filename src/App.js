@@ -5,7 +5,7 @@ import Pokemon from './pages/pokemon';
 import Home from './pages/principal';
 import { pokemonList } from './services/pokemons';
 function App() {
-  let cantidadpokemon = 10
+  let cantidadpokemon = 100
   const [state,setState] = useState({
     pokemons:pokemonList,
     pokemonbeta:[],

@@ -385,3 +385,41 @@
   text-align: center;
   font-family: 'PoppinsBold';
 }
+
+
+@media (min-width: 420px){
+  .imgPokemonBig {
+    top: 16%;
+    left: 44%;
+  }
+  .divLabelStat {
+    margin-left: 80%;
+}
+hr {
+  margin-top: 16%;
+ height: 70%;
+}
+.labelStat {
+font-size: 1em;
+}
+.descriptionAbout {
+  text-align: center;
+  font-size: 1.5em;
+}
+.movesAbout, .heightAbout , .weightAbout{
+  font-size: 1.5em;
+}
+.baseStatslbl {
+  position: relative;
+  margin-top: 1.5%;
+  font-size: 1.5em;
+}
+.headerPokemonBank {
+  margin-right: -2%;
+  margin-left: 3%;
+}
+.titleAboutStats {
+  font-size: 0.8em;
+  margin: 0;
+}
+}

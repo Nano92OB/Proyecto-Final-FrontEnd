@@ -3,24 +3,22 @@ import {useEffect, useState} from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Pokemon from './pages/pokemon';
 import Home from './pages/principal';
-import { pokemonList } from './services/pokemons';
 function App() {
-  let cantidadpokemon = 100
-  const [state,setState] = useState({
-    pokemons:pokemonList,
-    pokemonbeta:[],
-  })
-  const [filteredList, setFilteredList] = useState(Object.assign([],state.pokemonbeta));
+ const url='http://localhost:8080/pokedex/getPokemons'
+  const [pokemonsLists,setPokemonsLists] = useState([])
+  
+
+  const [filteredList, setFilteredList] = useState(Object.assign([],pokemonsLists));
   const [orderById,setOrderById]=useState (true)
 
   useEffect(()=>{
 
-    setFilteredList(Object.assign([],orderById ? state.pokemonbeta.sort((a,b)=>a.id-b.id) : state.pokemonbeta.sort(function(a,b){
+    setFilteredList(Object.assign([],orderById ?pokemonsLists.sort((a,b)=>a.id-b.id) :pokemonsLists.sort(function(a,b){
       if(a.name.toLowerCase() < b.name.toLowerCase()) return -1;
       if(a.name.toLowerCase() > b.name.toLowerCase()) return 1;
       return 0;
   })))
-},[orderById,state.pokemonbeta])
+},[orderById,pokemonsLists])
 
   const changeOrder = ()=>{
     setOrderById(!orderById)
@@ -28,38 +26,32 @@ function App() {
 
 
 const filterBySearch = (value) => {
-  setFilteredList(state.pokemonbeta.filter((item) => {
+  setFilteredList(pokemonsLists.filter((item) => {
     return item.name.toLowerCase().includes(value.toLowerCase())
   }))
 };
 
 
-useEffect(()=>{
-  fetchKantoPokemon()
-},[])
 
 async function fetchKantoPokemon(){
-  let aux = []
-  for(let i= 1;i<=cantidadpokemon;i++){
-    await fetch("https://pokeapi.co/api/v2/pokemon/"+i)
+  let aux=[]
+    await fetch(url)
     .then(response => response.json())
-    .then(function(pokeData){
-      console.log(pokeData)
-      aux.push(
-          { 
-              id: pokeData.id,  
-              name: pokeData.name,
-              types: pokeData.types.map((type)=>type.type.name),
-              weight: (pokeData.weight/10),  
-              height: (pokeData.height/10), 
-              moves: pokeData.moves.slice(0,2).map((move)=>move.move.name),        
-              HP: pokeData.stats[0].base_stat, ATK: pokeData.stats[1].base_stat, DEF: pokeData.stats[2].base_stat, SATK: pokeData.stats[3].base_stat, SDEF: pokeData.stats[4].base_stat, SPD: pokeData.stats[5].base_stat
-          }
-      )
+    .then(data=>{
+      data.forEach((item) => {
+        aux.push(item)
+        console.log(aux)
+      });
+      
     })
-  }
-    setState({...state, pokemonbeta: aux})
+    setPokemonsLists(aux)
+    
  }
+ useEffect(()=>{
+  fetchKantoPokemon()
+  console.log(pokemonsLists)
+},[pokemonsLists])
+
 
 
 
@@ -71,11 +63,10 @@ async function fetchKantoPokemon(){
         orderById= {orderById}
         filterBySearch= {filterBySearch}
         filteredList= {filteredList}
-        cantidadpokemon={cantidadpokemon}
         />}></Route>
 
       <Route path= "/:id" element={<Pokemon
-      pokemons={state.pokemonbeta.sort((a,b)=>a.id-b.id)}
+      pokemons={pokemonsLists.sort((a,b)=>a.id-b.id)}
       />}></Route>
       </Routes>
     </BrowserRouter>

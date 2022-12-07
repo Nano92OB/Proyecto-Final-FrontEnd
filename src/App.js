@@ -20,10 +20,17 @@ function App() {
   })))
 },[orderById,pokemonsLists])
 
+useEffect(()=>{
+  fetchKantoPokemon()
+  console.log(pokemonsLists)
+},[pokemonsLists])
+
+
   const changeOrder = ()=>{
     setOrderById(!orderById)
   }
 
+  
 
 const filterBySearch = (value) => {
   setFilteredList(pokemonsLists.filter((item) => {
@@ -42,15 +49,10 @@ async function fetchKantoPokemon(){
         aux.push(item)
         console.log(aux)
       });
-      
-    })
-    setPokemonsLists(aux)
-    
+      setPokemonsLists(aux)
+    })    
  }
- useEffect(()=>{
-  fetchKantoPokemon()
-  console.log(pokemonsLists)
-},[pokemonsLists])
+
 
 
 

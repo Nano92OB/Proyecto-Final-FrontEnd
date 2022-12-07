@@ -3,6 +3,7 @@ import {useEffect, useState} from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Pokemon from './pages/pokemon';
 import Home from './pages/principal';
+import LoginForm from './pages/Loginform';
 function App() {
  const url='http://localhost:8080/pokedex/getPokemons'
   const [pokemonsLists,setPokemonsLists] = useState([])
@@ -58,6 +59,7 @@ async function fetchKantoPokemon(){
   return (
     <BrowserRouter>
       <Routes>
+        <Route path='/loginform' element={<LoginForm/>}></Route>
         <Route path= "/" element={<Home
         changeOrder= {changeOrder}
         orderById= {orderById}

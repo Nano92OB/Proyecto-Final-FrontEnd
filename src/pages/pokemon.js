@@ -3,27 +3,12 @@ import ProgressBar from "@ramonak/react-progress-bar";
 import { Link, useParams } from "react-router-dom";
 import getHexType from "../services/typesFun";
 const Pokemon =({pokemons}) => {
-
-
     let id = useParams().id
-    const [pokemon, setPokemon] = useState(pokemons.find((poke) => poke.id == id))
-    const [ description,setDescription] = useState("")
-    
-    const [index,setIndex] = useState(pokemons.indexOf (pokemon)) 
+    const pokemon = pokemons.find((poke) => poke.id == id)
+    const [index,setIndex] = useState(pokemons.indexOf(pokemon)) 
 
     useEffect(()=>{
-        setPokemon(pokemons.find((poke) => poke.id == id))
-        fetch("https://pokeapi.co/api/v2/pokemon-species/"+id)
-        .then(response => response.json())
-        .then(function(pokeDescription){
-          console.log(pokeDescription)
-          
-           setDescription( pokeDescription.flavor_text_entries.filter((text)=>text.language.name=="en")[0].flavor_text)
-                     
-        })
-    },[id,pokemons])
-    useEffect(()=>{
-        setIndex(pokemons.indexOf (pokemon))
+        setIndex(pokemons.indexOf(pokemon))
     },[pokemon])
 
     const nextPos=index+1;
@@ -31,13 +16,13 @@ const Pokemon =({pokemons}) => {
     let colorPrincipal = null
     let colorSecundario = null
     if(pokemon){
-        colorPrincipal = getHexType(pokemon.types[0])
-        
-        if (pokemon.types[1]){
-            colorSecundario = getHexType(pokemon.types[1])
+        colorPrincipal = getHexType(pokemon.type[0].toLowerCase()) 
+        console.log('principal' + colorPrincipal)
+        if (pokemon.type[1]){
+            colorSecundario = getHexType(pokemon.type[1].toLowerCase())
+            console.log('secundario' + colorSecundario)
         }
     }
-
     return(
         <>
         {(!pokemon)?
@@ -73,23 +58,21 @@ const Pokemon =({pokemons}) => {
 
                 </div>
                 
-                {
-                //<img alt="a" src={"/Sprites/Icons/" + pokemon.name.toLowerCase() + ".png"} className="imgPokemonBig" />
-                }
-
-                <img alt="a" src={`https://assets.pokemon.com/assets/cms2/img/pokedex/full/${addLeadingZeros(pokemon.id,3)}.png`} className="imgPokemonBig" />  
+            
+                <img alt="a" src={"/Sprites/Icons/" + pokemon.name.toLowerCase() + ".png"} className="imgPokemonBig" />
+                
  
                 <div className="bodyPokemons">
                     
                     <div className="typesPokemon">
-                    {(!pokemon.types[1])?
+                    {(!pokemon.type[1])?
                         <>
-                            <p className={"buttonPokemon"} style={{backgroundColor: colorPrincipal}}>{capitalizeFirstLetter(pokemon.types[0])}</p>
+                            <p className={"buttonPokemon"} style={{backgroundColor: colorPrincipal}}>{capitalizeFirstLetter(pokemon.type[0])}</p>
                         </>
                     :
                         <>
-                            <p className={"buttonPokemon"} style={{backgroundColor: colorPrincipal}}>{capitalizeFirstLetter(pokemon.types[0])}</p>
-                            <p className={"buttonPokemon"} style={{backgroundColor: colorSecundario}}>{capitalizeFirstLetter(pokemon.types[1])}</p>
+                            <p className={"buttonPokemon"} style={{backgroundColor: colorPrincipal}}>{capitalizeFirstLetter(pokemon.type[0])}</p>
+                            <p className={"buttonPokemon"} style={{backgroundColor: colorSecundario}}>{capitalizeFirstLetter(pokemon.type[1])}</p>
                         </>
                     }
                         </div>
@@ -119,7 +102,7 @@ const Pokemon =({pokemons}) => {
                         </div>
 
                         <div className="movesAbout">{capitalizeFirstLetter(pokemon.moves[0])}<br/>{capitalizeFirstLetter(pokemon.moves[1])}<br/><p className="titleAboutStats">Moves</p></div>
-                        <div className="descriptionAbout">{description}</div>
+                        <div className="descriptionAbout">{pokemon.description}</div>
                     </div>
                     
                     <div className="baseStats">
@@ -131,15 +114,15 @@ const Pokemon =({pokemons}) => {
                             <hr/>
                         </div>
                         <div className={"divLabelStatPokemon"}>
-                            <p className="labelStat">{pokemon.HP}</p><p className="labelStat">{pokemon.ATK}</p><p className="labelStat">{pokemon.DEF}</p><p className="labelStat">{pokemon.SATK}</p><p className="labelStat">{pokemon.SDEF}</p><p className="labelStat">{pokemon.SPD}</p>
+                            <p className="labelStat">{pokemon.base.HP}</p><p className="labelStat">{pokemon.base.Attack}</p><p className="labelStat">{pokemon.base.Defense}</p><p className="labelStat">{pokemon.base.Spa}</p><p className="labelStat">{pokemon.base.Spd}</p><p className="labelStat">{pokemon.base.Speed}</p>
                         </div>
                         <div className="divProgressBar">
-                        <p className="labelStat"><ProgressBar completed={pokemon.HP}maxCompleted={200} height="10px" bgColor={colorPrincipal} labelClassName="barLabel"/></p>
-                        <p className="labelStat"><ProgressBar completed={pokemon.ATK} maxCompleted={200} height="10px" bgColor={colorPrincipal} labelClassName="barLabel"/></p>
-                        <p className="labelStat"><ProgressBar completed={pokemon.DEF} maxCompleted={200} height="10px" bgColor={colorPrincipal} labelClassName="barLabel"/></p>
-                        <p className="labelStat"><ProgressBar completed={pokemon.SATK} maxCompleted={200} height="10px" bgColor={colorPrincipal} labelClassName="barLabel"/></p>
-                        <p className="labelStat"><ProgressBar completed={pokemon.SDEF} maxCompleted={200} height="10px" bgColor={colorPrincipal} labelClassName="barLabel"/></p>
-                        <p className="labelStat"><ProgressBar completed={pokemon.SPD} maxCompleted={200} height="10px" bgColor={colorPrincipal} labelClassName="barLabel"/></p>
+                        <p className="labelStat"><ProgressBar completed={pokemon.base.HP}maxCompleted={200} height="10px" bgColor={colorPrincipal} labelClassName="barLabel"/></p>
+                        <p className="labelStat"><ProgressBar completed={pokemon.base.Attack} maxCompleted={200} height="10px" bgColor={colorPrincipal} labelClassName="barLabel"/></p>
+                        <p className="labelStat"><ProgressBar completed={pokemon.base.Defense} maxCompleted={200} height="10px" bgColor={colorPrincipal} labelClassName="barLabel"/></p>
+                        <p className="labelStat"><ProgressBar completed={pokemon.base.Spa} maxCompleted={200} height="10px" bgColor={colorPrincipal} labelClassName="barLabel"/></p>
+                        <p className="labelStat"><ProgressBar completed={pokemon.base.Spd} maxCompleted={200} height="10px" bgColor={colorPrincipal} labelClassName="barLabel"/></p>
+                        <p className="labelStat"><ProgressBar completed={pokemon.base.Speed} maxCompleted={200} height="10px" bgColor={colorPrincipal} labelClassName="barLabel"/></p>
                         </div>
                     </div>
                 </div>

@@ -1,6 +1,6 @@
 import Navbar from '../../components/Navbar';
 import { FilterPokemons} from '../../components/PokemonBank';
-const Home =({changeOrder,orderById,filterBySearch,filteredList,pokemons,cantidadpokemon})=> {
+const Home =({changeOrder,orderById,filterBySearch,filteredList})=> {
 
 return (
     <>
@@ -10,8 +10,7 @@ return (
     search={filterBySearch}
     />
     <FilterPokemons
-    cantidadpokemon={cantidadpokemon}
-    pokemon={filteredList}
+    pokemonsList={filteredList}
     />
     </>
   );

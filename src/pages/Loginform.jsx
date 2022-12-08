@@ -3,7 +3,7 @@ import styles from './Loginform.module.css'
 
 const LoginForm = () => {
     return(
-        <div id={styles.formDiv}>
+        <div className={styles.formDiv}>
                 <main className="form-signin text-center shadow-lg p-3 mb-5">
                     <form id="formLogin" action="/login" method="POST">
                             <div className="title margins">
@@ -28,7 +28,7 @@ const LoginForm = () => {
                             <div className="checkbox mb-3">
 
                             </div>
-                            <button className="w-100 btn btn-lg btn-primary" type="submit">Login</button>
+                            <button className="w-100 btn btn-lg btn btn-dark" type="submit">Login</button>
                     </form>
                     <br/>
                         <a href="/register" type="button" className="w-100 btn btn-lg btn-bd-primary">Registrarse</a>

@@ -1,7 +1,12 @@
 import React from "react";
+import {useState} from "react";
 import { Link } from "react-router-dom";
+import LoginBtn from "./LoginBtn";
 
 const Navbar = ({ change, stateChange, search }) => {
+
+  const [isLogged, setLogged] = useState(localStorage.getItem('userToken'))
+
   return (
     <nav>
       <div className="title margins">
@@ -34,11 +39,13 @@ const Navbar = ({ change, stateChange, search }) => {
             </>
           )}
         </div>
-        <Link to="/loginform">
-          <button className="w-10 btn btn-sm btn-dark" type="submit">
-            Login
-          </button>
-        </Link>
+        {
+          (isLogged!=null) ?
+            <button className="w-10 btn btn-sm btn-dark" type="button" onClick={setLogged(null)}>Log Out</button>      
+            :
+            <LoginBtn handler={setLogged}/>           
+        }
+       
       </div>
       <div className="searchBar">
         <input

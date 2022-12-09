@@ -61,12 +61,14 @@
   .footerPokemon{
     display: grid;
     height: 52px;
+    width: 99%;
     text-align: center;
     align-items: center;
     color: white;
     font-family: 'Poppins';
+    font-size: 94%;
     border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px; 
+    border-bottom-right-radius: 10px;
     margin: -1px;
   }
   .headerPokemon{
@@ -106,12 +108,12 @@
   align-items: center;
 }
 .imageLogo{
-  height: 35px;
+  height: 2em;
   display: flex;
 }
-.textTitle{
+.textTitle {
   font-family: 'Poppinsbold';
-  font-size: 32px;
+  font-size: 100%;
   display: flex;
 }
 .typeOrder{
@@ -119,6 +121,9 @@
   cursor: pointer;
   align-items: center;
   font-family: 'Poppins';
+  position: relative;
+  right: -74px;
+  top: 1px;
 }
 .arrowNav{
   height: 23px;

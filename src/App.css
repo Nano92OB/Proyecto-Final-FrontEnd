@@ -192,12 +192,13 @@
   align-items: center;
 }
 .idPokemons{
-  display: grid;
-  grid-area: 1/2/2/3;
-  font-size: medium;
-  font-family: 'PoppinsBold'; 
-  margin-right: 15%;
-  text-align: end;
+    display: grid;
+    grid-area: 1/2/2/3;
+    font-size: 1.3em;
+    font-family: 'PoppinsBold';
+    margin-right: 15%;
+    text-align: end;
+    color: white;
 }
 
 .pokemonArrow{

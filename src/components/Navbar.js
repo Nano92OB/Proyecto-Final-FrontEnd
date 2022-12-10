@@ -41,9 +41,12 @@ const Navbar = ({ change, stateChange, search }) => {
         </div>
         {
           (isLogged!=null) ?
-            <button className="w-10 btn btn-sm btn-dark" type="button" onClick={setLogged(null)}>Log Out</button>      
+            <button className="w-10 btn btn-sm btn-dark" type="button" onClick={()=>setLogged(null)}>Log Out</button>      
             :
-            <LoginBtn handler={setLogged}/>           
+            <Link to={'/loginform'}>
+              <LoginBtn handler={setLogged}/> 
+            </Link>
+                      
         }
        
       </div>

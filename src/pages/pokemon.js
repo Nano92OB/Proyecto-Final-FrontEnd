@@ -34,7 +34,7 @@ const Pokemon =({pokemons}) => {
                         <Link to="/">
                         <div className="nameAndArrow">
                             <img src="/Sprites/Icons/Arrow.svg" alt="arrow" className="pokemonArrow"/>
-                            <p className="pokemonName" style={{color:"black"}}>{capitalizeFirstLetter(pokemon.name)}</p>
+                            <p className="pokemonName" style={{color:"black"}}>{(pokemon.name)}</p>
                         </div>
                         </Link>
                         <div className="idPokemons">#{addLeadingZeros(pokemon.id,3)}</div>
@@ -67,12 +67,12 @@ const Pokemon =({pokemons}) => {
                     <div className="typesPokemon">
                     {(!pokemon.type[1])?
                         <>
-                            <p className={"buttonPokemon"} style={{backgroundColor: colorPrincipal}}>{capitalizeFirstLetter(pokemon.type[0])}</p>
+                            <p className={"buttonPokemon"} style={{backgroundColor: colorPrincipal}}>{(pokemon.type[0])}</p>
                         </>
                     :
                         <>
-                            <p className={"buttonPokemon"} style={{backgroundColor: colorPrincipal}}>{capitalizeFirstLetter(pokemon.type[0])}</p>
-                            <p className={"buttonPokemon"} style={{backgroundColor: colorSecundario}}>{capitalizeFirstLetter(pokemon.type[1])}</p>
+                            <p className={"buttonPokemon"} style={{backgroundColor: colorPrincipal}}>{(pokemon.type[0])}</p>
+                            <p className={"buttonPokemon"} style={{backgroundColor: colorSecundario}}>{(pokemon.type[1])}</p>
                         </>
                     }
                         </div>
@@ -101,7 +101,7 @@ const Pokemon =({pokemons}) => {
                             <hr className="hrAbout"/>
                         </div>
 
-                        <div className="movesAbout">{capitalizeFirstLetter(pokemon.moves[0])}<br/>{capitalizeFirstLetter(pokemon.moves[1])}<br/><p className="titleAboutStats">Moves</p></div>
+                        <div className="movesAbout">{(pokemon.moves[0])}<br/>{(pokemon.moves[1])}<br/><p className="titleAboutStats">Moves</p></div>
                         <div className="descriptionAbout">{pokemon.description}</div>
                     </div>
                     
@@ -135,9 +135,9 @@ const Pokemon =({pokemons}) => {
 function addLeadingZeros(num, totalLength) {
     return String(num).padStart(totalLength, '0');
   }
-  function capitalizeFirstLetter(string) {
-    return string.charAt(0).toUpperCase() + string.slice(1);
-  }
+//   function capitalizeFirstLetter(string) {
+//     return string.charAt(0).toUpperCase() + string.slice(1);
+//   }
 
 
 export default Pokemon

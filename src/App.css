@@ -51,12 +51,16 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    width: 92%;
-    height: 85vh;
+    width: 100%;
+    height: 100%;
+    margin: 0%;
   }
   .bodyPokemon{
     display: grid;
     height: 150px;
+  }
+  .pokeNewCard{
+    width: 96vw;
   }
   .footerPokemon{
     display: grid;

@@ -9,51 +9,131 @@ const FormNewPoke = ({ props }) => {
   //   }
 
   return (
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12 shadow p-3 mb-5">
-          <div class="card border-primary">
-            <div class="card-header bg-primary text-white">Registrarse</div>
-            <div class="card-body text-primary">
+    <div className="container bg-dark">
+      <div className="pokeNavbar">
+        <p className="text-light">Add the new Pokemon</p>
+      </div>
+      <div classNameName="pokeNewCard">
+        <div className="col-lg-12 shadow p-3 mb-5">
+          <div className="card border-dark">
+            <div className="card-body text-dark">
               <form action="/addNew" method="POST">
                 {" "}
               </form>
-              <div class="mb-3">
-                <label for="name" class="form-label">
-                  Nombre Completo
+              <div className="mb-3">
+                <label for="name" className="form-label">
+                  PokeName
                 </label>
                 <input
+                  placeholder="Enter a name"
                   id="name"
                   name="name"
                   type="text"
-                  class="form-control"
+                  className="form-control"
                   aria-describedby="emailHelp"
                 />{" "}
               </div>
-              <div class="mb-3">
-                <label for="user" class="form-label">
-                  Cuenta de Usuario
-                </label>
-                <input type="text" name="user" id="user" class="form-control" />
-              </div>
-              <div class="mb-3">
-                <label for="pass" class="form-label">
-                  Password
+              <div className="mb-3">
+                <label for="weight" className="form-label">
+                  Weight (kg)
                 </label>
                 <input
-                  type="password"
-                  name="pass"
-                  id="pass"
-                  class="form-control"
+                  type="number"
+                  name="weight"
+                  id="weight"
+                  className="form-control"
+                  placeholder="0,0kg"
+                />
+              </div>
+              <div className="mb-3">
+                <label for="height" className="form-label">
+                  Height (Mts)
+                </label>
+                <input
+                  type="number"
+                  name="height"
+                  id="height"
+                  className="form-control"
+                  placeholder="0,0 mts"
                 />{" "}
+                <div className="mb-3">
+                  <label for="description" className="form-label">
+                    Description
+                  </label>
+                  <textarea
+                    placeholder="Enter a description"
+                    textarea
+                    id="description"
+                    name="description"
+                    rows="1"
+                    cols="39"
+                  />{" "}
+                </div>
+                <div className="typeCol d-flex justify-content-around">
+                  <div className="mb-3 col-5">
+                    <label for="type" className="form-label">
+                      Primary Type
+                    </label>
+                    <select
+                      class="form-select"
+                      multiple
+                      aria-label="Primary Type"
+                    >
+                      <option value="Electric">Electric</option>
+                      <option value="Grass">Grass</option>
+                      <option value="Poison">Poison</option>
+                      <option value="Water">Water</option>
+                      <option value="Fire">Fire</option>
+                      <option value="Bug">Bug</option>
+                      <option value="Flying">Flying</option>
+                      <option value="Steel">Steel</option>
+                      <option value="Rock">Rock</option>
+                      <option value="Normal">Normal</option>
+                      <option value="Ghost">Ghost</option>
+                      <option value="Fighting">Fighting</option>
+                      <option value="Psychic">Psychic</option>
+                      <option value="Ice">Ice</option>
+                      <option value="Dark">Dark</option>
+                      <option value="Fairy">Fairy</option>
+                      <option value="Ground">Ground</option>
+                      <option value="Dragon">Dragon</option>
+                    </select>{" "}
+                  </div>
+                  <div className="mb-3 col-5">
+                    <label for="type" className="form-label">
+                      Secondary Type
+                    </label>
+                    <select
+                      class="form-select"
+                      multiple
+                      aria-label="Primary Type"
+                    >
+                      <option value="Electric">Electric</option>
+                      <option value="Grass">Grass</option>
+                      <option value="Poison">Poison</option>
+                      <option value="Water">Water</option>
+                      <option value="Fire">Fire</option>
+                      <option value="Bug">Bug</option>
+                      <option value="Flying">Flying</option>
+                      <option value="Steel">Steel</option>
+                      <option value="Rock">Rock</option>
+                      <option value="Normal">Normal</option>
+                      <option value="Ghost">Ghost</option>
+                      <option value="Fighting">Fighting</option>
+                      <option value="Psychic">Psychic</option>
+                      <option value="Ice">Ice</option>
+                      <option value="Dark">Dark</option>
+                      <option value="Fairy">Fairy</option>
+                      <option value="Ground">Ground</option>
+                      <option value="Dragon">Dragon</option>
+                    </select>{" "}
+                  </div>
+                </div>
               </div>
             </div>
-            <div class="card-footer bg-transparent border-primary">
-              <a href="/" type="button" class="btn btn-secondary">
-                Cancelar
-              </a>
-              <button type="submit" class="btn btn-primary">
-                Registrar
+            <div className="card-footer bg-transparent border-dark">
+              <button type="submit" className="btn btn-dark">
+                Add
               </button>
             </div>
           </div>

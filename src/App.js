@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Pokemon from './pages/pokemon';
 import Home from './pages/principal';
 import LoginForm from './pages/Loginform';
+import FormNewPoke from './pages/principal/FormNewPoke';
 function App() {
   const url='http://localhost:8080/pokedex/getPokemons'
   const [pokemonsLists,setPokemonsLists] = useState([])
@@ -90,6 +91,7 @@ function App() {
       <Route path= "/:id" element={<Pokemon
       pokemons={pokemonsLists.sort((a,b)=>a.id-b.id)}
       />}></Route>
+      <Route path='/addForm' element={<FormNewPoke/>}></Route>
       </Routes>
     </BrowserRouter>
   );

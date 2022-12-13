@@ -31,6 +31,7 @@ const LoginForm = () => {
         if(data.token){
             localStorage.setItem('userToken', data.token)
             navigate("/")
+            window.location.reload();
         }
     }
 
@@ -49,7 +50,7 @@ const LoginForm = () => {
                             <h1 className="h3 mb-3 fw-normal">Ingrese Porfavor</h1>
 
                             <div className="form-floating">
-                                <input ref={inputUsername} type="text" className="form-control" id="user" name="user" placeholder="User" />
+                                <input ref={inputUsername} type="text" className="form-control" id="user" name="user" placeholder="User"/>
                                     <label for="user">User</label>
                             </div>
                             <div className="form-floating">

@@ -28,9 +28,15 @@ function App() {
   }))
   };
 
- async function fetchKantoPokemon(){
+ async function fetchAllPokemons(){
   let aux=[]
-    await fetch(url)
+    await fetch(url,{
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      }
+    }
+    )
     .then(response => response.json())
     .then(data=>{
       data.forEach((item) => {
@@ -41,8 +47,33 @@ function App() {
    console.log(pokemonsLists)
  }
 
+  async function fetchUserPokemons() {
+    let aux = []
+    await fetch(url, {
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'Authentication': localStorage.getItem('userToken')
+      }
+    }
+    )
+      .then(response => response.json())
+      .then(data => {
+        data.forEach((item) => {
+          aux.push(item)
+        });
+        setPokemonsLists(aux)
+      })
+    console.log(pokemonsLists)
+  }
+
  useEffect(()=>{
-  fetchKantoPokemon()
+  if(!localStorage.getItem('userToken')){
+    fetchAllPokemons()
+  }
+  else{
+    fetchUserPokemons()
+  }
 },[])
 
   return (

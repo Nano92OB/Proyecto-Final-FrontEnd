@@ -1,12 +1,19 @@
 import React from "react";
 import {useState} from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import LoginBtn from "./LoginBtn";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = ({ change, stateChange, search }) => {
-
+  let navigate = useNavigate();
   const [isLogged, setLogged] = useState(localStorage.getItem('userToken'))
 
+  const logout = () =>{
+    setLogged(null)
+    localStorage.removeItem('userToken')
+    navigate('/');
+    window.location.reload();
+  }
   return (
     <nav>
       <div className="title margins">
@@ -41,7 +48,7 @@ const Navbar = ({ change, stateChange, search }) => {
         </div>
         {
           (isLogged!=null) ?
-            <button className="w-10 btn btn-sm btn-dark" type="button" onClick={()=>setLogged(null)}>Log Out</button>      
+            <button className="w-10 btn btn-sm btn-dark" type="button" onClick={()=>logout()}>Log Out</button>      
             :
             <Link to={'/loginform'}>
               <LoginBtn handler={setLogged}/> 

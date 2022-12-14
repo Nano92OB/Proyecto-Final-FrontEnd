@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Pokemon from './pages/pokemon';
 import Home from './pages/principal';
 import LoginForm from './pages/Loginform';
-import FormNewPoke from './pages/principal/FormNewPoke';
+import FormNewPoke from './pages/FormNewPoke';
 function App() {
   const url='http://localhost:8080/pokedex/getPokemons'
   const [pokemonsLists,setPokemonsLists] = useState([])

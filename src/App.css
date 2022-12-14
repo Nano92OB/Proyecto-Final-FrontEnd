@@ -72,6 +72,17 @@
     font-family: 'Poppins';
   }
 
+ .container {
+   display: flex;
+   flex-direction: row;
+   flex-wrap: wrap;
+   width: 100%;
+   height: 100%;
+   margin: 0%;
+   justify-content: center;
+  }
+  
+
 .pokemonContainerBank{
   margin-top: 2vw;
   display: grid;

@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import styles from './cssModules/FormNewPoke.module.css'
-import { Slider } from "@mui/material";
+
 
 const FormNewPoke = ({ props }) => {
   // url = "http://localhost:8080/pokedex"
@@ -156,54 +156,7 @@ const FormNewPoke = ({ props }) => {
                     <p>SPD</p>
                   </div>
                   <div className={styles.rangeSliders}>
-                      <Slider
-                        size="small"
-                        defaultValue={70}
-                        aria-label="Small"
-                        valueLabelDisplay="auto"
-                        min={1}
-                        max={255}
-                      />
-                      <Slider
-                        size="small"
-                        defaultValue={70}
-                        aria-label="Small"
-                        valueLabelDisplay="auto"
-                        min={1}
-                        max={255}
-                      />
-                      <Slider
-                        size="small"
-                        defaultValue={70}
-                        aria-label="Small"
-                        valueLabelDisplay="auto"
-                        min={1}
-                        max={255}
-                      />
-                      <Slider
-                        size="small"
-                        defaultValue={70}
-                        aria-label="Small"
-                        valueLabelDisplay="auto"
-                        min={1}
-                        max={255}
-                      />
-                      <Slider
-                        size="small"
-                        defaultValue={70}
-                        aria-label="Small"
-                        valueLabelDisplay="auto"
-                        min={1}
-                        max={255}
-                      />
-                      <Slider
-                        size="small"
-                        defaultValue={70}
-                        aria-label="Small"
-                        valueLabelDisplay="auto"
-                        min={1}
-                        max={255}
-                      />
+                  
                   </div>
                 </div>
                 <div className="card-footer bg-transparent border-dark">

@@ -1,0 +1,30 @@
+html{
+    height: 100%;
+   
+}
+.formDiv > main {
+    height: 100% !important;
+    width: 23em;
+}
+.formDiv{
+    height: 93vh !important;
+    
+}
+.logo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    bottom: 1.5em;
+}
+
+.pokeArrow{
+    position: relative;
+    top: 0.5em;
+}
+.textTitle{
+    font-family: 'Poppinsbold';
+    font-size: 1.5em;
+    display: flex;
+}

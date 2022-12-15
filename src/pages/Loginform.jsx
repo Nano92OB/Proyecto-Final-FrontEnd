@@ -40,10 +40,10 @@ const LoginForm = () => {
     <div className={styles.formDiv}>
       <main className="form-signin text-center shadow-lg p-3 mb-5">
         <form id="formLogin" action="/login" method="POST">
+            <div className={styles.loginPokeForm}>
           <div className="title margins align-items-center">
-            
+            <Link to={'/'}>
               <div className={styles.pokeArrow}>
-              <Link to={'/'}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="18"
@@ -56,10 +56,10 @@ const LoginForm = () => {
                     d="m9.017 11.108-.252-.252a.429.429 0 0 0-.606 0l-2.98 2.997V.43A.429.429 0 0 0 4.75 0h-.357a.429.429 0 0 0-.429.429v13.424l-2.98-2.997a.429.429 0 0 0-.606 0l-.252.252a.429.429 0 0 0 0 .606l4.142 4.16a.429.429 0 0 0 .607 0l4.142-4.16a.429.429 0 0 0 0-.606Z"
                   />
                 </svg>
-                </Link>
               </div>
-            
+              </Link>
           </div>
+          
           <div className={styles.logo}>
             <img
               className="imageLogo"
@@ -67,6 +67,7 @@ const LoginForm = () => {
               alt="pokeball"
             />
             <span className={styles.textTitle + " margins"}>Pokédex</span>
+          </div>
           </div>
           <div className="form-floating mb-3">
             <input

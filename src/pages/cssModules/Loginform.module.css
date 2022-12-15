@@ -15,16 +15,18 @@ html{
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    position: relative;
-    bottom: 1.5em;
+    margin-left: 3em;
+    margin-bottom: 1em;
+    
 }
 
-.pokeArrow{
-    position: relative;
-    top: 0.5em;
-}
 .textTitle{
     font-family: 'Poppinsbold';
     font-size: 1.5em;
     display: flex;
+}
+
+.loginPokeForm{
+    display: flex;
+    justify-content: flex-start;
 }

@@ -4,7 +4,7 @@ import { useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 
-const LoginForm = () => {
+const LoginForm = (props) => {
   const loginURL = "http://localhost:8080/auth/login";
   let navigate = useNavigate();
   const inputUsername = useRef("");
@@ -31,14 +31,14 @@ const LoginForm = () => {
     const data = await response.json();
     if (data.token) {
       localStorage.setItem("userToken", data.token);
+      props.handlerUl()
       navigate("/");
-      window.location.reload();
     }
   };
 
   return (
     <div className={styles.formDiv}>
-      <main className="form-signin text-center shadow-lg p-3 mb-5">
+      
         <form id="formLogin" action="/login" method="POST">
             <div className={styles.loginPokeForm}>
           <div className="title margins align-items-center">
@@ -107,7 +107,6 @@ const LoginForm = () => {
           </button>
         </form>
         <br />
-      </main>
     </div>
   );
 };

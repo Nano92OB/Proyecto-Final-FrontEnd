@@ -4,15 +4,15 @@ import { Link, Navigate } from "react-router-dom";
 import LoginBtn from "./LoginBtn";
 import { useNavigate } from "react-router-dom";
 
-const Navbar = ({ change, stateChange, search }) => {
+const Navbar = ({ change, stateChange, search, handlerUl}) => {
   let navigate = useNavigate();
   const [isLogged, setLogged] = useState(localStorage.getItem('userToken'))
 
   const logout = () =>{
     setLogged(null)
     localStorage.removeItem('userToken')
+    handlerUl()
     navigate('/');
-    window.location.reload();
   }
   return (
     <nav>

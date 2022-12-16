@@ -1,7 +1,8 @@
 import React, { useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import styles from "./cssModules/FormNewPoke.module.css";
 import { useRef } from "react";
+
 
 const FormNewPoke = () => {
   const inputName = useRef('');
@@ -18,6 +19,7 @@ const FormNewPoke = () => {
   const inputSatk = useRef('');
   const inputSdef = useRef('');
   const inputSpd = useRef('');
+  let navigate = useNavigate()
 
   const handleClick = (e)=>{
     e.preventDefault()
@@ -66,6 +68,7 @@ const FormNewPoke = () => {
       .then(data => {
         if (data.status == 200) {
           alert('Pokemon added successfully!')
+          navigate('/')
         }
         else {
           alert('An error has occurred')

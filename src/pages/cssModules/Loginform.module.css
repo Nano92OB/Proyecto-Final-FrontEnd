@@ -7,8 +7,8 @@ html{
     width: 23em;
 }
 .formDiv{
-    height: 93vh !important;
-    
+    height: 100vh !important;
+    padding:8%;
 }
 .logo {
     display: flex;
@@ -17,7 +17,6 @@ html{
     justify-content: center;
     margin-left: 3em;
     margin-bottom: 1em;
-    
 }
 
 .textTitle{

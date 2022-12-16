@@ -10,6 +10,7 @@ function App() {
   const [pokemonsLists,setPokemonsLists] = useState([])
   const [filteredList, setFilteredList] = useState(Object.assign([],pokemonsLists));
   const [orderById,setOrderById] = useState (true)
+  const [isLogged, setUserLogged] = useState(false)
 
   useEffect(()=>{
     setFilteredList(Object.assign([],orderById ? pokemonsLists.sort((a,b)=>a.id-b.id) : pokemonsLists.sort(function(a,b){
@@ -21,6 +22,10 @@ function App() {
 
   const changeOrder = ()=>{
   setOrderById(!orderById)
+  }
+
+  const handlerUserLogged = ()=>{
+    setUserLogged(!isLogged)
   }
 
   const filterBySearch = (value) => {
@@ -45,7 +50,7 @@ function App() {
       });
       setPokemonsLists(aux)
     })
-   console.log(pokemonsLists)
+
  }
 
   async function fetchUserPokemons() {
@@ -65,7 +70,6 @@ function App() {
         });
         setPokemonsLists(aux)
       })
-    console.log(pokemonsLists)
   }
 
  useEffect(()=>{
@@ -75,13 +79,14 @@ function App() {
   else{
     fetchUserPokemons()
   }
-},[])
+},[isLogged])
 
   return (
     <BrowserRouter>
       <Routes>
-        <Route path='/loginform' element={<LoginForm/>}></Route>
+        <Route path='/loginform' element={<LoginForm handlerUl={handlerUserLogged}/>}></Route>
         <Route path= "/" element={<Home
+        handlerUl={handlerUserLogged}
         changeOrder= {changeOrder}
         orderById= {orderById}
         filterBySearch= {filterBySearch}

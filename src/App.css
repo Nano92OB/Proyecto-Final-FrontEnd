@@ -52,7 +52,7 @@
     flex-direction: row;
     flex-wrap: wrap;
     width: 92%;
-    height: 85vh;
+    height: auto;
   }
   .bodyPokemon{
     display: grid;
@@ -88,6 +88,7 @@
 .divImagePokemon{
   display: grid;
   justify-content: center;
+  align-content: center;
 }
 .imgPokemon{
   width: 100px;

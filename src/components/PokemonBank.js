@@ -7,16 +7,17 @@ import NewPokemonButton from "./addPokemonButton";
 const FilterPokemons = ({ pokemonsList }) => {
   return (
     <div className="container marginsPokemons">
-      {localStorage.getItem("userToken") ? (
-        <NewPokemonButton />
-      ) : (
-        pokemonsList.map((poke, key) => {
+      {
+        (localStorage.getItem('userToken')) ? <NewPokemonButton/> : null
+      }             
+      { 
+         pokemonsList.map((poke, key) => {
           const numero = addLeadingZeros(poke.id, 3);
           return (
-            <PokemonBank key={key} pokemon={poke} numero={numero}></PokemonBank>
+              <PokemonBank key={key} pokemon={poke} numero={numero}></PokemonBank>
           );
         })
-      )}
+      }
     </div>
   );
 };

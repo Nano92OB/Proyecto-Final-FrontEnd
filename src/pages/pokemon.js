@@ -65,7 +65,7 @@ const Pokemon =({pokemons}) => {
                 <div className="bodyPokemons">
                     
                     <div className="typesPokemon">
-                    {(!pokemon.type[1])?
+                    {(pokemon.type[0] == pokemon.type[1])?
                         <>
                             <p className={"buttonPokemon"} style={{backgroundColor: colorPrincipal}}>{(pokemon.type[0])}</p>
                         </>

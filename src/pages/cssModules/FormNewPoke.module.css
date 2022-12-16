@@ -60,7 +60,7 @@ textarea{
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    gap: 6%;
+    gap: 7%;
 }
 
 
@@ -75,6 +75,8 @@ textarea{
     width: 80%;
     height: 100%;
     justify-content: space-between;
-    margin-left: 2%;
+    margin-left: 5%;
 }
+
+
 

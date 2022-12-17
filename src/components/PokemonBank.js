@@ -42,7 +42,7 @@ const PokemonBank = ({ pokemon, numero }) => {
           <div className="divImagePokemon">
             <img
               alt="a"
-              src={"/Sprites/Icons/" + pokemon.name.toLowerCase() + ".png"}
+              src={pokemon.img}
               className="imgPokemon"
             />
           </div>

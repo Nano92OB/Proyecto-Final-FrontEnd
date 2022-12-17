@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import styles from "./cssModules/FormNewPoke.module.css";
 import { useRef } from "react";
 
-const FormNewPoke = () => {
+const FormNewPoke = (props) => {
   const inputName = useRef("");
   const inputImg = useRef("");
   const inputWeight = useRef("");
@@ -22,7 +22,7 @@ const FormNewPoke = () => {
   let navigate = useNavigate();
 
   const handleClick = (e) => {
-    e.preventDefault();
+    e.preventDefault()
     const url = "http://localhost:8080/pokedex/addNew";
     const newPokemon = {
       name: inputName.current.value,
@@ -44,7 +44,7 @@ const FormNewPoke = () => {
       createdAt: new Date(),
       updatedAt: new Date(),
     };
-    if (newPokemon.weight <= 0 || newPokemon.height <= 0) {
+    if (newPokemon.weight < 0 || newPokemon.height < 0) {
       alert("Weight and Height must be positive values!");
     } else if (
       newPokemon.base.HP < 0 ||  newPokemon.base.HP > 255 ||
@@ -67,6 +67,7 @@ const FormNewPoke = () => {
       }).then((data) => {
         if (data.status == 200) {
           alert("Pokemon added successfully!");
+          props.setReload(new Date().getTime())
           navigate("/");
         } else {
           alert("An error has occurred");
@@ -98,7 +99,7 @@ const FormNewPoke = () => {
       </div>
       <div className={styles.pokeNewCard}>
         <div className={styles.whiteCard + " card text-dark"}>
-          <form>
+          <form onSubmit={handleClick}>
             <div className="mb-2">
               <label for="name" className="form-label">
                 PokeName
@@ -172,9 +173,7 @@ const FormNewPoke = () => {
                 cols="39"
                 required
               />{" "}
-            </div>
-            
-            
+            </div>          
             <div className="move mb-2">
               <label for="moves" className="form-label">
                 Move 1
@@ -190,25 +189,25 @@ const FormNewPoke = () => {
                 aria-describedby="emailHelp"
                 required
               />{" "}
-              </div>
-             
-              <div className="move mb-2">
-              <label for="moves" className="form-label">
-                Move 2
-              </label>
-              <input
-                ref={inputMove2}
-                placeholder="Enter second Move"
-                maxLength="20"
-                id="move2"
-                name="move2"
-                type="text"
-                className="form-control"
-                aria-describedby="emailHelp"
-                required
-              />{" "}
-              </div>
+            </div>
             
+            <div className="move mb-2">
+            <label for="moves" className="form-label">
+              Move 2
+            </label>
+            <input
+              ref={inputMove2}
+              placeholder="Enter second Move"
+              maxLength="20"
+              id="move2"
+              name="move2"
+              type="text"
+              className="form-control"
+              aria-describedby="emailHelp"
+              required
+            />{" "}
+            </div>
+
             <div className="typeCol d-flex justify-content-between mb-3 mt-3">
               <div className="mb-2 col-5">
                 <label for="type" className="form-label">
@@ -336,10 +335,8 @@ const FormNewPoke = () => {
             </div>
             <div className="card-footer bg-transparent border-dark">
               <button
-                onClick={handleClick}
                 type="submit"
-                className="btn btn-dark"
-              >
+                className="btn btn-dark">
                 Add
               </button>
             </div>

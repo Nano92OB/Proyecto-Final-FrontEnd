@@ -59,7 +59,7 @@ const Pokemon =({pokemons}) => {
                 </div>
                 
             
-                <img alt="a" src={"/Sprites/Icons/" + pokemon.name.toLowerCase() + ".png"} className="imgPokemonBig" />
+                <img alt="a" src={pokemon.img} className="imgPokemonBig" />
                 
  
                 <div className="bodyPokemons">

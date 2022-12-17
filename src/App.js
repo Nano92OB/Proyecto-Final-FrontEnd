@@ -11,6 +11,7 @@ function App() {
   const [filteredList, setFilteredList] = useState(Object.assign([],pokemonsLists));
   const [orderById,setOrderById] = useState (true)
   const [isLogged, setUserLogged] = useState(false)
+  const [reload, setReload] = useState(null)
 
   useEffect(()=>{
     setFilteredList(Object.assign([],orderById ? pokemonsLists.sort((a,b)=>a.id-b.id) : pokemonsLists.sort(function(a,b){
@@ -79,7 +80,7 @@ function App() {
   else{
     fetchUserPokemons()
   }
-},[isLogged])
+},[isLogged, reload])
 
   return (
     <BrowserRouter>
@@ -92,11 +93,10 @@ function App() {
         filterBySearch= {filterBySearch}
         filteredList= {filteredList}
         />}></Route>
-
       <Route path= "/:id" element={<Pokemon
       pokemons={pokemonsLists.sort((a,b)=>a.id-b.id)}
       />}></Route>
-      <Route path='/addForm' element={<FormNewPoke/>}></Route>
+      <Route path='/addForm' element={<FormNewPoke setReload={setReload}/>}></Route>
       </Routes>
     </BrowserRouter>
   );

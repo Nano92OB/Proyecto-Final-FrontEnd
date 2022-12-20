@@ -95,7 +95,7 @@ const FormNewPoke = (props) => {
             </svg>
           </div>
         </Link>
-        <p className="text-light">Add the new Pokemon</p>
+        <p className="text-light">Add a new Pokemon</p>
       </div>
       <div className={styles.pokeNewCard}>
         <div className={styles.whiteCard + " card text-dark"}>

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const NewPokemonButton = () => {
   return (
-    <div className="pokemonContainerBank borderPokemon" style={{borderColor: '#666666'}}>
+    <div className="pokemonContainerBank borderPokemon" style={{borderColor: '#FE3D31'}}>
       <Link to={"/addForm"}>
         <div className="bodyPokemon">
           <div className="divImagePokemon" >
@@ -14,7 +14,7 @@ const NewPokemonButton = () => {
             />
           </div>
         </div>
-        <div className="footerPokemon" style={{ backgroundColor: "#666666" }}>
+        <div className="footerPokemon" style={{backgroundColor: "#FE3D31" }}>
           Add
         </div>
       </Link>

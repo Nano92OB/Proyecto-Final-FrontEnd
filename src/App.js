@@ -5,6 +5,7 @@ import Pokemon from './pages/pokemon';
 import Home from './pages/principal';
 import LoginForm from './pages/Loginform';
 import FormNewPoke from './pages/FormNewPoke';
+
 function App() {
   const url='http://localhost:8080/pokedex/getPokemons'
   const [pokemonsLists,setPokemonsLists] = useState([])
@@ -51,8 +52,7 @@ function App() {
       });
       setPokemonsLists(aux)
     })
-
- }
+  }
 
   async function fetchUserPokemons() {
     let aux = []
@@ -92,11 +92,12 @@ function App() {
         orderById= {orderById}
         filterBySearch= {filterBySearch}
         filteredList= {filteredList}
+        setReload={setReload}
         />}></Route>
-      <Route path= "/:id" element={<Pokemon
-      pokemons={pokemonsLists.sort((a,b)=>a.id-b.id)}
-      />}></Route>
-      <Route path='/addForm' element={<FormNewPoke setReload={setReload}/>}></Route>
+        <Route path= "/:id" element={<Pokemon
+        pokemons={pokemonsLists.sort((a,b)=>a.id-b.id)}
+        />}></Route>
+        <Route path='/addForm' element={<FormNewPoke setReload={setReload}/>}></Route>
       </Routes>
     </BrowserRouter>
   );

@@ -1,0 +1,10 @@
+.deleteButton{
+    transform: rotate(-90deg);
+    position: relative;
+    top: -10.5em;
+    left: 8.5em;
+    border-color: 0.5px solid;
+    margin-left: 15%;
+    
+}
+

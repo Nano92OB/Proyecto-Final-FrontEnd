@@ -200,7 +200,9 @@
     font-family: 'PoppinsBold';
     margin-right: 15%;
     text-align: end;
-    color: white;
+    color: black !important;
+    height: 100%;
+    align-items: center;
 }
 
 .pokemonArrow{
@@ -229,9 +231,10 @@
 
 .imgPokemonBig{
   position: absolute;
-  top: 13%;
-  left: 22%;
-  height: 250px;
+  top: 15%;
+  left: 25%;
+  max-height: 200px;
+  max-width: 200px;
 }
 
 .leftDot{
@@ -240,6 +243,7 @@
   left: 30px;
   bottom: 15px;
   font-family: 'Poppins';
+  color: black;
 }
 
 .rightDot{
@@ -248,6 +252,7 @@
   right: 30px;
   bottom: 15px;
   font-family: 'Poppins';
+  color: black;
 }
 
 .bodyPokemons{
@@ -266,6 +271,7 @@
   display: flex;
   grid-area: 1/1/2/2;
   justify-content: center;
+  align-items: center;
   margin-top: 45px;
   gap: 10px;
 }
@@ -276,7 +282,9 @@
   text-align: center;
   color: white;
   border-radius: 10px;
+  margin: 3%;
   font-family: 'Poppins';
+  font-size: medium;
 
 }
 .aboutPokemon{

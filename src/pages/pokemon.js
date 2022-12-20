@@ -39,10 +39,8 @@ const Pokemon =({pokemons}) => {
                             <p className="pokemonName" style={{color:"black"}}>{(pokemon.name)}</p>
                         </div>
                         </Link>
-                        <DeleteBin 
-                        type={pokemon.type[0]
-                        }/>
-                        <div className="idPokemons">#{addLeadingZeros(pokemon.id,3)}</div>
+                        <DeleteBin/>
+                        <div className="idPokemons">#{addLeadingZeros(pokemon.id, 3)}</div>
                     </div>
                     <div className="divButtons">
                         {pokemons[beforePos] &&
@@ -70,17 +68,18 @@ const Pokemon =({pokemons}) => {
                 <div className="bodyPokemons">
                     
                     <div className="typesPokemon">
-                    {(pokemon.type[0] == pokemon.type[1])?
-                        <>
-                            <p className={"buttonPokemon"} style={{backgroundColor: colorPrincipal}}>{(pokemon.type[0])}</p>
-                        </>
-                    :
-                        <>
-                            <p className={"buttonPokemon"} style={{backgroundColor: colorPrincipal}}>{(pokemon.type[0])}</p>
-                            <p className={"buttonPokemon"} style={{backgroundColor: colorSecundario}}>{(pokemon.type[1])}</p>
-                        </>
-                    }
-                        </div>
+                        {(pokemon.type[0] == pokemon.type[1] || pokemon.type.length == 1) ?
+                            <> 
+                                <p className={"buttonPokemon"} style={{backgroundColor: colorPrincipal}}>{(pokemon.type[0])}</p>
+                            </>
+                        :
+                            <>
+                    
+                                <p className={"buttonPokemon"} style={{backgroundColor: colorPrincipal}}>{(pokemon.type[0])}</p>
+                                <p className={"buttonPokemon"} style={{backgroundColor: colorSecundario}}>{(pokemon.type[1])}</p>
+                            </>
+                        }
+                    </div>
                     <div className="aboutPokemon">
                         <div className={"titleAbout"} style={{color:colorPrincipal}}>About</div>
 

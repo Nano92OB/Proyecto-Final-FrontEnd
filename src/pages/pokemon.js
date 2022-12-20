@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import ProgressBar from "@ramonak/react-progress-bar";
 import { Link, useParams } from "react-router-dom";
 import getHexType from "../services/typesFun";
+import DeleteBin from "../components/deleteBin";
+
 const Pokemon =({pokemons}) => {
     let id = useParams().id
     const pokemon = pokemons.find((poke) => poke.id == id)
@@ -37,6 +39,9 @@ const Pokemon =({pokemons}) => {
                             <p className="pokemonName" style={{color:"black"}}>{(pokemon.name)}</p>
                         </div>
                         </Link>
+                        <DeleteBin 
+                        type={pokemon.type[0]
+                        }/>
                         <div className="idPokemons">#{addLeadingZeros(pokemon.id,3)}</div>
                     </div>
                     <div className="divButtons">

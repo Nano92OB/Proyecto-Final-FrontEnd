@@ -3,12 +3,16 @@ import { Link } from "react-router-dom";
 import getHexType from "../services/typesFun";
 import { Loading } from "./Lib";
 import NewPokemonButton from "./addPokemonButton";
+import NewDefaultPokemon from "./addDefaultPokemon";
 
 const FilterPokemons = ({ pokemonsList }) => {
   return (
     <div className="container marginsPokemons">
       {
         (localStorage.getItem('userToken')) ? <NewPokemonButton/> : null
+      }
+      {
+        (localStorage.getItem('userToken')) ? <NewDefaultPokemon/> : null
       }             
       { 
          pokemonsList.map((poke, key) => {

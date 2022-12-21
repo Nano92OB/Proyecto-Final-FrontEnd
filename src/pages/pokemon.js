@@ -4,7 +4,7 @@ import { Link, useParams } from "react-router-dom";
 import getHexType from "../services/typesFun";
 import DeleteBin from "../components/deleteBin";
 
-const Pokemon =({pokemons}) => {
+const Pokemon =({pokemons, setReload}) => {
     let id = useParams().id
     const pokemon = pokemons.find((poke) => poke.id == id)
     const [index,setIndex] = useState(pokemons.indexOf(pokemon)) 
@@ -39,7 +39,10 @@ const Pokemon =({pokemons}) => {
                             <p className="pokemonName" style={{color:"black"}}>{(pokemon.name)}</p>
                         </div>
                         </Link>
-                        <DeleteBin/>
+                        <DeleteBin
+                        setReload={setReload}
+                        id={pokemon.id}
+                        />
                         <div className="idPokemons">#{addLeadingZeros(pokemon.id, 3)}</div>
                     </div>
                     <div className="divButtons">

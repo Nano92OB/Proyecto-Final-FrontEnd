@@ -95,6 +95,7 @@ function App() {
         setReload={setReload}
         />}></Route>
         <Route path= "/:id" element={<Pokemon
+        setReload={setReload}
         pokemons={pokemonsLists.sort((a,b)=>a.id-b.id)}
         />}></Route>
         <Route path='/addForm' element={<FormNewPoke setReload={setReload}/>}></Route>

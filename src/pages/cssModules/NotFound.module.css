@@ -1,0 +1,26 @@
+.notFoundContainer{
+    background-color: #F7F7F7;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.sadImg{
+    height: 20vh;
+}
+
+h1{
+    margin:0px;
+    text-align: center;
+}
+.sadPikachu{
+    justify-content: center;
+    display: flex;
+    margin-left: 5%;
+}
+
+.navbar{
+    position: absolute;
+    margin-left: 5%;
+    top:4%;
+}

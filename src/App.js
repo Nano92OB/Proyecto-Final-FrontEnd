@@ -5,6 +5,8 @@ import Pokemon from './pages/pokemon';
 import Home from './pages/principal';
 import LoginForm from './pages/Loginform';
 import FormNewPoke from './pages/FormNewPoke';
+import LoadingCard from './components/LoadingCard';
+import NotFound from './pages/NotFound';
 
 function App() {
   const url='http://localhost:8080/pokedex/getPokemons'
@@ -83,24 +85,30 @@ function App() {
 },[isLogged, reload])
 
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path='/loginform' element={<LoginForm handlerUl={handlerUserLogged}/>}></Route>
-        <Route path= "/" element={<Home
-        handlerUl={handlerUserLogged}
-        changeOrder= {changeOrder}
-        orderById= {orderById}
-        filterBySearch= {filterBySearch}
-        filteredList= {filteredList}
-        setReload={setReload}
-        />}></Route>
-        <Route path= "/:id" element={<Pokemon
-        setReload={setReload}
-        pokemons={pokemonsLists.sort((a,b)=>a.id-b.id)}
-        />}></Route>
-        <Route path='/addForm' element={<FormNewPoke setReload={setReload}/>}></Route>
-      </Routes>
-    </BrowserRouter>
+    <> 
+     
+      {
+        (!pokemonsLists) ? <LoadingCard/> : 
+        <BrowserRouter>
+          <Routes>
+            <Route path='/loginform' element={<LoginForm handlerUl={handlerUserLogged}/>}></Route>
+            <Route path= "/" element={<Home
+            handlerUl={handlerUserLogged}
+            changeOrder= {changeOrder}
+            orderById= {orderById}
+            filterBySearch= {filterBySearch}
+            filteredList= {filteredList}
+            setReload={setReload}
+            />}></Route>
+            <Route path= "/:id" element={<Pokemon
+            setReload={setReload}
+            pokemons={pokemonsLists.sort((a,b)=>a.id-b.id)}
+            />}></Route>
+            <Route path='/addForm' element={<FormNewPoke setReload={setReload}/>}></Route>
+          </Routes>
+        </BrowserRouter>
+        }
+    </>   
   );
 }
 

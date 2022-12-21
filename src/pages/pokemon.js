@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import ProgressBar from "@ramonak/react-progress-bar";
 import { Link, useParams } from "react-router-dom";
 import getHexType from "../services/typesFun";
-import DeleteBin from "../components/deleteBin";
+import DeleteBin from "../components/DeleteBin";
+import NotFound from "./NotFound";
 
 const Pokemon =({pokemons, setReload}) => {
     let id = useParams().id
@@ -28,7 +29,7 @@ const Pokemon =({pokemons, setReload}) => {
     return(
         <>
         {(!pokemon)?
-<p>Cargando...</p>:
+        <NotFound/>:
         <div className="pokemonContainer">
             <div className={"backgroundPokemon"} style={{backgroundColor: colorPrincipal}} > 
                 <div className="divHeaderPokemonBank">

@@ -39,10 +39,9 @@ const Pokemon =({pokemons, setReload}) => {
                             <p className="pokemonName" style={{color:"black"}}>{(pokemon.name)}</p>
                         </div>
                         </Link>
-                        <DeleteBin
-                        setReload={setReload}
-                        id={pokemon.id}
-                        />
+                        {
+                            (localStorage.getItem('userToken')) ? <DeleteBin setReload={setReload} id={pokemon.id}/> : null
+                        }
                         <div className="idPokemons">#{addLeadingZeros(pokemon.id, 3)}</div>
                     </div>
                     <div className="divButtons">

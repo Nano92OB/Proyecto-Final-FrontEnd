@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import styles from "./cssModules/FormNewPoke.module.css";
 import { useRef } from "react";
@@ -23,7 +23,7 @@ const FormNewPoke = (props) => {
 
   const handleClick = (e) => {
     e.preventDefault()
-    const url = "http://localhost:8080/pokedex/addNew";
+    const url = "http://localhost:8080/pf/addNew";
     const newPokemon = {
       name: inputName.current.value,
       img: inputImg.current.value,
@@ -65,7 +65,7 @@ const FormNewPoke = (props) => {
         },
         body: JSON.stringify(newPokemon),
       }).then((data) => {
-        if (data.status == 200) {
+        if (data.status === 200) {
           alert("Pokemon added successfully!");
           props.setReload(new Date().getTime())
           navigate("/");

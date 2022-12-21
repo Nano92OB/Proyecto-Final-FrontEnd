@@ -6,7 +6,6 @@ import Home from './pages/principal';
 import LoginForm from './pages/Loginform';
 import FormNewPoke from './pages/FormNewPoke';
 import LoadingCard from './components/LoadingCard';
-import NotFound from './pages/NotFound';
 
 function App() {
   const url='http://localhost:8080/pokedex/getPokemons'
@@ -15,6 +14,7 @@ function App() {
   const [orderById,setOrderById] = useState (true)
   const [isLogged, setUserLogged] = useState(false)
   const [reload, setReload] = useState(null)
+  const [loading, setLoading] = useState(false)
 
   useEffect(()=>{
     setFilteredList(Object.assign([],orderById ? pokemonsLists.sort((a,b)=>a.id-b.id) : pokemonsLists.sort(function(a,b){
@@ -40,6 +40,7 @@ function App() {
 
  async function fetchAllPokemons(){
   let aux=[]
+    setLoading(true)
     await fetch(url,{
       headers: {
         'Accept': 'application/json',
@@ -52,12 +53,16 @@ function App() {
       data.forEach((item) => {
         aux.push(item)
       });
-      setPokemonsLists(aux)
+      setTimeout(() => {
+        setPokemonsLists(aux)
+        setLoading(false)
+      }, 600);
     })
   }
 
   async function fetchUserPokemons() {
     let aux = []
+    setLoading(true)
     await fetch(url, {
       headers: {
         'Accept': 'application/json',
@@ -71,7 +76,11 @@ function App() {
         data.forEach((item) => {
           aux.push(item)
         });
-        setPokemonsLists(aux)
+        setTimeout(() => {
+          setPokemonsLists(aux)
+          setLoading(false)
+        }, 600);
+        
       })
   }
 
@@ -86,9 +95,8 @@ function App() {
 
   return (
     <> 
-     
       {
-        (!pokemonsLists) ? <LoadingCard/> : 
+        (loading) ? <LoadingCard/> : 
         <BrowserRouter>
           <Routes>
             <Route path='/loginform' element={<LoginForm handlerUl={handlerUserLogged}/>}></Route>
@@ -107,7 +115,7 @@ function App() {
             <Route path='/addForm' element={<FormNewPoke setReload={setReload}/>}></Route>
           </Routes>
         </BrowserRouter>
-        }
+         }
     </>   
   );
 }

@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "../components/cssModules/DeleteBin.module.css";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const DeleteBin = (props) => {
   const navigate = useNavigate();
@@ -14,10 +14,10 @@ const DeleteBin = (props) => {
       },
     };
     fetch(
-      "http://localhost:8080/pokedex/dltPokemon/" + props.id,
+      "http://localhost:8080/pf/dltPokemon/" + props.id,
       requestOption
     ).then((data) => {
-      if (data.status == 200) {
+      if (data.status === 200) {
         alert("Pokemon deleted successfully!");
         props.setReload(new Date().getTime());
         navigate("/");

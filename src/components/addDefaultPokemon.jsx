@@ -5,7 +5,7 @@ import {useNavigate} from "react-router-dom";
 const NewDefaultPokemon = (props) => {
   const navigate = useNavigate()
   const addDefaultPokemons = ()=>{
-    const url = 'http://localhost:8080/pokedex/defaultPoks'
+    const url = 'http://localhost:8080/pf/defaultPoks'
     fetch(url, {
       method: "POST",
       headers: {
@@ -14,7 +14,7 @@ const NewDefaultPokemon = (props) => {
         Authentication: localStorage.getItem("userToken"),
       },
     }).then((data) => {
-      if (data.status == 200) {
+      if (data.status === 200) {
         alert("Default Pokemons added successfully!");
         props.setReload(new Date().getTime())
         navigate("/");

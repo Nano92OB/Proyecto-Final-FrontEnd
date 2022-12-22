@@ -95,8 +95,9 @@ function App() {
 
   return (
     <> 
+      <LoadingCard />
       {
-        (loading) ? <LoadingCard/> : 
+        /*(loading) ? <LoadingCard/> : 
         <BrowserRouter>
           <Routes>
             <Route path='/loginform' element={<LoginForm handlerUl={handlerUserLogged}/>}></Route>
@@ -115,7 +116,7 @@ function App() {
             <Route path='/addForm' element={<FormNewPoke setReload={setReload}/>}></Route>
           </Routes>
         </BrowserRouter>
-         }
+            */}
     </>   
   );
 }

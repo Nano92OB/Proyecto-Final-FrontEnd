@@ -19,7 +19,7 @@ const NewDefaultPokemon = (props) => {
         props.setReload(new Date().getTime())
         navigate("/");
       } else {
-        alert("An error has occurred");
+        alert("Default Pokemon have already been added!");
       }
     })
   }

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import ProgressBar from "@ramonak/react-progress-bar";
 import { Link, useParams } from "react-router-dom";
 import getHexType from "../services/typesFun";
-import DeleteBin from "../components/DeleteBin";
+import DeleteBin from "../components/deleteBin";
 import NotFound from "./NotFound";
 
 const Pokemon =({pokemons, setReload}) => {

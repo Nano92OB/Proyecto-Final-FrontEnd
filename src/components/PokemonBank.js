@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import getHexType from "../services/typesFun";
-import NewPokemonButton from "./AddPokemonButton";
-import NewDefaultPokemon from "./AddDefaultPokemon";
+import NewPokemonButton from "./addPokemonButton";
+import NewDefaultPokemon from "./addDefaultPokemon";
 
 const FilterPokemons = ({ pokemonsList, setReload }) => {
   return (

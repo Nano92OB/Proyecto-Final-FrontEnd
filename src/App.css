@@ -154,8 +154,8 @@
 }
 
 /*Pokemon Selected*/
-.pokemonContainer{
-  width: 100vw;
+.pokemonContainer {
+  width: 99vw;
   height: 100vh;
 }
 .backgroundPokemon{
@@ -174,14 +174,14 @@
 .pokeballBackground {
   position: absolute;
   opacity: 0.2;
-  right: 35%;
-  top: 9%;
-  height: 26em;
+  right: 15%;
+  top: 15%;
+  height: 15em;
   pointer-events: none;
 }
-.headerPokemonBank{
+.headerPokemonBank {
   display: grid;
-  height: 55%;
+  height: 40%;
   grid-template-columns: 70% 30%;
   grid-template-rows: 100%;
   opacity: 1;
@@ -196,17 +196,17 @@
 .idPokemons {
   display: grid;
   grid-area: 1/2/2/3;
-  font-size: 2.3em;
+  font-size: 1.5em;
   font-family: 'PoppinsBold';
-  margin-right: 16%;
   text-align: end;
   color: black !important;
   height: 100%;
   align-items: center;
+  margin-right: 27%;
 }
 
 .pokemonArrow {
-  height: 3em;
+  height: 2em;
   display: flex;
   transform: rotate(90deg);
   width: 40px;
@@ -216,7 +216,7 @@
 
 .pokemonName {
   display: flex;
-  font-size: 2.5em;
+  font-size: 1.5em;
   font-family: 'PoppinsBold';
   justify-self: left;
   margin-left: 0.5em;
@@ -330,12 +330,13 @@
   display: grid;
   grid-area: 2/1/3/2;
   color: #e0e0e0;
-  font-size: 10px;
+  font-size: 1em;
   font-family: 'PoppinsBold';
   align-self: center;
   text-align: center;
   height: 20%;
 }
+
 
 .heightAbout{
   display: grid;
@@ -352,13 +353,14 @@
   justify-content: center;
   align-items: center;
 }
-.descriptionAbout{
+.descriptionAbout {
   display: grid;
   grid-area: 3/1/4/6;
   text-align: left;
   font-size: 12px;
   margin-left: 10px;
   margin-right: 10px;
+  margin-top: 6%;
 }
 .baseStats{
   display: grid;
@@ -400,13 +402,14 @@
   justify-content: space-evenly;
 }
 
-.baseStatslbl{
+
+.baseStatslbl {
   display: grid;
   grid-area: 1/1/2/5;
   text-align: center;
   font-family: 'PoppinsBold';
-  margin:0px;
   align-items: center;
+  margin-top: 8%;
 }
 
 /*-----Loader------*/
@@ -491,6 +494,38 @@
     justify-content: center;
     left: 48%;
 }
+.pokemonName{
+  font-size: 3.5em;
+}
+.aboutPokemon {
+  
+  font-size: 90%;
+ 
+}
+.pokeballBackground {
+  right: 35%;
+  top: 6%;
+  height: 25em;
+}
+.idPokemons {
+  font-size: 3em;
+}
+.pokemonArrow{
+  height: 4em;
+}
+.bodyPokemons {
+    display: grid;
+    grid-area: 2/1/3/2;
+    background-color: white;
+    width: 98%;
+    height: 92%;
+    margin-left: 0.5%;
+    margin-right: 0.5%;
+    border-radius: 10px;
+    grid-template-columns: 100%;
+    grid-template-rows: 15% 35% 50%;
+    margin-top: 3em;
+}
   nav{
     margin-top: 2%;
   }
@@ -499,7 +534,7 @@
   }
   .imgPokemonBig {
     top: 16%;
-    left: 44%;
+    left: 46%;
   }
   .divLabelStat {
     margin-left: 80%;
@@ -514,13 +549,14 @@
   .descriptionAbout {
     text-align: center;
     font-size: 1.5em;
-  }
+    margin-top: 1em;
+}
   .movesAbout, .heightAbout , .weightAbout{
     font-size: 1.5em;
   }
   .baseStatslbl {
     position: relative;
-    margin-top: 1.5%;
+    margin-top: 2.5%;
     font-size: 1.5em;
   }
   .headerPokemonBank {

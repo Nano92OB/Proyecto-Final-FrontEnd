@@ -159,7 +159,7 @@ const FormNewPoke = (props) => {
                 required
               />
             </div>
-            <div className="mb-2 d-flex flex-column">
+            <div className={styles.description + " mb-2 d-flex flex-column"}>
               <label for="description" className="form-label">
                 Description
               </label>
@@ -174,40 +174,41 @@ const FormNewPoke = (props) => {
                 required
               />{" "}
             </div>          
-            <div className="move mb-2">
-              <label for="moves" className="form-label">
-                Move 1
-              </label>
-              <input
-                ref={inputMove1}
-                placeholder="Enter first Move"
-                maxLength="20"
-                id="move1"
-                name="move1"
-                type="text"
-                className="form-control"
-                aria-describedby="emailHelp"
-                required
-              />{" "}
-            </div>
-            
-            <div className="move mb-2">
-            <label for="moves" className="form-label">
-              Move 2
-            </label>
-            <input
-              ref={inputMove2}
-              placeholder="Enter second Move"
-              maxLength="20"
-              id="move2"
-              name="move2"
-              type="text"
-              className="form-control"
-              aria-describedby="emailHelp"
-              required
-            />{" "}
-            </div>
+           <div>
+              <div className="mb-2">
+                <label for="moves" className="form-label">
+                  Move 1
+                </label>
+                <input
+                  ref={inputMove1}
+                  placeholder="Enter first Move"
+                  maxLength="20"
+                  id="move1"
+                  name="move1"
+                  type="text"
+                  className="form-control"
+                  aria-describedby="emailHelp"
+                  required
+                />{" "}
+              </div>
 
+              <div className={styles.move2 + " m t-5 mb-2"}>
+                <label for="moves" className="form-label">
+                  Move 2
+                </label>
+                <input
+                  ref={inputMove2}
+                  placeholder="Enter second Move"
+                  maxLength="20"
+                  id="move2"
+                  name="move2"
+                  type="text"
+                  className="form-control"
+                  aria-describedby="emailHelp"
+                  required
+                />{" "}
+              </div>
+           </div>
             <div className="typeCol d-flex justify-content-between mb-3 mt-3">
               <div className="mb-2 col-5">
                 <label for="type" className="form-label">
@@ -333,7 +334,7 @@ const FormNewPoke = (props) => {
                 />
               </div>
             </div>
-            <div className="card-footer bg-transparent border-dark">
+            <div className={styles.footer +" bg-transparent"}>
               <button
                 type="submit"
                 className="btn btn-dark">

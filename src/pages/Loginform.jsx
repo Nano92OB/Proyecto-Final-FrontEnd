@@ -46,7 +46,7 @@ const LoginForm = (props) => {
               <div className={styles.pokeArrow}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  width="18"
+                  width="25"
                   height="30"
                   fill="#000000"
                   viewBox="0 0 10 16"

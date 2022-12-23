@@ -1,10 +1,17 @@
 .deleteButton{
     transform: rotate(-90deg);
     position: relative;
-    top: -10.5em;
-    left: 8.5em;
+    top: -9.5em;
+    left: 6.5em;
     border-color: 0.5px solid;
     margin-left: 15%;
     
 }
 
+@media(min-width: 420px){
+    .deleteButton{
+        position: relative;
+        top: -42.1em;
+        left: 57.5em;
+    }
+}

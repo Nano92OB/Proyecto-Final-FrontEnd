@@ -45,6 +45,10 @@ textarea{
     overflow-y: scroll !important;
 }
 
+.move2{
+    margin-top: 0px !important;
+}
+
 .baseSliders{
     display: flex;
     flex-direction: row;
@@ -63,6 +67,17 @@ textarea{
     gap: 7%;
 }
 
+.footer{
+    border-top: 0.5px solid gray;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.footer button {
+    margin-top: 2.35%;
+    margin-bottom: 2.35%;
+}
+
 
 
 .baseScores p {
@@ -78,5 +93,50 @@ textarea{
     margin-left: 5%;
 }
 
+@media (min-width: 420px){
+    .whiteCard{
+        width: 80%;
+    }
+    .pokeNavbar{
+        margin-top: 3%;
+        margin-bottom: 1%;
+    }
+    .whiteCard{
+        display: flex;
+        justify-content: center;
+        padding: 2%;
+        height: 100%;
+        
+    }
+    .pokeNewCard{
+        overflow-y: hidden !important;
+    }
+    .whiteCard form{
+        height: 100%;
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2%;
+    }
+    form div {
+        height: 5vh;
+    }
+    .baseSliders{
+        height: 25vh;
+    }
+    .description{
+        height: 20vh !important;
+    }
+    .footer{
+        grid-column: 1/3;
+        width: 100%;
+        border-top: 0.5px solid gray;
+        display: flex;
+        justify-content: flex-end;
+    }
+    .footer button {
+        margin-top: 0.5%;
+    }
 
 
+}

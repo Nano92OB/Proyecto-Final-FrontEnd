@@ -29,3 +29,21 @@ html{
     display: flex;
     justify-content: flex-start;
 }
+
+@media(min-width: 420px){
+    .formDiv{
+        justify-content: center;
+        display: flex;
+    }
+    .loginPokeForm{
+        justify-content: space-between;
+    }
+    form{
+        width: 30%;
+    }
+    .title{
+        margin-right: 5%;
+    }
+    
+    
+}

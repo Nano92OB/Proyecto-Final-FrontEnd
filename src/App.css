@@ -53,7 +53,6 @@
     flex-wrap: wrap;
     width: 92%;
     height: auto;
-    margin-left: 26em;
   }
   .bodyPokemon{
     display: grid;
@@ -174,8 +173,8 @@
 .pokeballBackground {
   position: absolute;
   opacity: 0.2;
-  right: 15%;
-  top: 15%;
+  right: 4%;
+  top: 7%;
   height: 15em;
   pointer-events: none;
 }
@@ -497,6 +496,17 @@ hr {
     justify-content: center;
     left: 48%;
 }
+
+.container{
+  justify-content: center;
+  margin-left: 0em;
+  margin-right: 0px;
+  padding:0px;
+  width: 95vw;
+  margin-left: 20%;
+}
+
+
 .titleAbout {
   display: grid;
   grid-area: 1/1/2/6;
@@ -513,6 +523,11 @@ hr {
   margin-top: 0%;
   gap: 10px;
 }
+.baseStats{
+  margin-top: 2%;
+  margin-bottom: 3%;
+}
+
 .hrMid {
   display: flex;
   justify-content: center;
@@ -543,7 +558,7 @@ hr {
   grid-area: 2/1/3/2;
   background-color: white;
   width: 99%;
-  height: 74%;
+  height: 85%;
   margin-left: 0.5%;
   border-radius: 10px;
   grid-template-columns: 100%;
@@ -557,8 +572,8 @@ hr {
     right: -43%;
   }
   .imgPokemonBig {
-    top: 4%;
-    left: 41%;
+    top: 5%;
+    left: 42%;
     height: 21em;
 }
   .divLabelStat {
@@ -566,7 +581,7 @@ hr {
   }
   hr {
     margin-top: 16%;
-  height: 70%;
+    height: 50%;
   }
   .labelStat {
   font-size: 1em;
@@ -583,7 +598,7 @@ hr {
     position: relative;
     margin-top: 2.5%;
     font-size: 1.5em;
-    top: -33%;
+    top: -125%;
 }
   .headerPokemonBank {
     margin-right: -2%;
